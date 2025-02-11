@@ -17,10 +17,7 @@ let
     ];
     python = [
       ruff
-      (python311.withPackages (p: with p; [
-        black
-        uv
-      ]))
+      uv
     ];
     scripts = pkgs.lib.attrsets.attrValues scripts;
   };
