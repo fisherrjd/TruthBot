@@ -12,16 +12,15 @@ client = Api(username, password)
 from itertools import islice
 
 user_posts = client.pull_statuses("realDonaldTrump")  # This returns a generator
-
-# Use islice to get the first 5 posts
 for post in islice(user_posts, 5):
     # Extract the relevant information
+
     filtered_post = {
         "uri": post.get("uri"),
         "username": post.get("username"),
         "content": post.get("content"),
-        "media_attachments": post.get("media_attachments")
+        "media_attachments": post.get("media_attachments"),
     }
-    
+
     # Print the filtered post as prettified JSON
-    print(json.dumps(filtered_post, indent=4))
+    print(json.dumps(post, indent=4))
